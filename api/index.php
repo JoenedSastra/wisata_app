@@ -1,11 +1,9 @@
 <?php
 
-// Load autoloader dulu
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $_SERVER['DOCUMENT_ROOT'] = __DIR__ . '/../public';
 
-// Buat folder storage di /tmp
 $directories = [
     '/tmp/storage/app/public',
     '/tmp/storage/framework/cache/data',
@@ -20,7 +18,6 @@ foreach ($directories as $dir) {
     }
 }
 
-// Boot Laravel
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 $app->useStoragePath('/tmp/storage');
 
