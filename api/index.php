@@ -1,13 +1,11 @@
 <?php
 
+// Load autoloader dulu
+require_once __DIR__ . '/../vendor/autoload.php';
+
 $_SERVER['DOCUMENT_ROOT'] = __DIR__ . '/../public';
 
-// Set storage path ke /tmp karena Vercel read-only
-$app = require_once __DIR__ . '/../bootstrap/app.php';
-
-$app->useStoragePath('/tmp/storage');
-
-// Buat folder yang dibutuhkan Laravel di /tmp
+// Buat folder storage di /tmp
 $directories = [
     '/tmp/storage/app/public',
     '/tmp/storage/framework/cache/data',
@@ -21,6 +19,10 @@ foreach ($directories as $dir) {
         mkdir($dir, 0755, true);
     }
 }
+
+// Boot Laravel
+$app = require_once __DIR__ . '/../bootstrap/app.php';
+$app->useStoragePath('/tmp/storage');
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $request = Illuminate\Http\Request::capture();
