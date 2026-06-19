@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 
 Route::get('/', function () {
-    return redirect()->route('wisata.index');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

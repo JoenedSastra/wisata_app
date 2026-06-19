@@ -49,7 +49,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>Tempat Wisata Indonesia</h1>
+            <h1>Pilih Tempat Wisata Anda</h1>
         </div>
     </header>
 
